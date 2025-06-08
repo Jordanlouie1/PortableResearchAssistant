@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 200px;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      margin: 0;
+    }
+    
+    h1 {
+      font-size: 18px;
+      margin: 0 0 15px 0;
+      color: #333;
+    }
+    
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    button:hover {
+      background: #3367d6;
+    }
+    
+    .description {
+      font-size: 12px;
+      color: #666;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔍 AI-Powered Article Search</h1>
+    
+    <div class="config-section">
+        <h3>🔧 API Configuration</h3>
+        <div class="input-group">
+            <label for="openaiKey">OpenAI API Key:</label>
+            <input type="password" id="openaiKey" placeholder="sk-...">
+        </div>
+        <div class="input-group">
+            <label for="newsKey">News API Key (optional):</label>
+            <input type="password" id="newsKey" placeholder="Your News API key">
+        </div>
+    </div>
+
+    <div class="input-group">
+        <label for="userPrompt">Enter your search prompt:</label>
+        <textarea id="userPrompt" placeholder="Example: I want to learn about recent developments in renewable energy technology and its impact on climate change..."></textarea>
+    </div>
+
+    <button class="button" onclick="processPrompt()">🚀 Analyze & Search</button>
+
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Processing your request...</p>
+    </div>
+
+    <div class="results" id="results"></div>
+</div>
+
+  <h1>Navigation Pane</h1>
+  <button id="toggleBtn">Toggle Navigation</button>
+  <div class="description">
+    Click to show/hide the navigation sidebar on the current page.
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
