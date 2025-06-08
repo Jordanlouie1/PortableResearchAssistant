@@ -105,7 +105,7 @@
 
   // Generate navigation items from page headings
   function generateNavItems() {
-    const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p');
     const navList = navPane.querySelector('.nav-pane-list');
     
     if (headings.length === 0) {
@@ -309,7 +309,7 @@
       if (!noResultsMsg) {
         noResultsMsg = document.createElement('div');
         noResultsMsg.className = 'no-search-results';
-        noResultsMsg.textContent = `No headings found for "${searchTerm}"`;
+        noResultsMsg.textContent = `No ss found for "${searchTerm}"`;
         navPane.querySelector('.nav-pane-list').appendChild(noResultsMsg);
       }
     } else if (noResultsMsg) {
