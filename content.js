@@ -1,110 +1,3 @@
-   // Highlight current section while scrolling
-   function highlightCurrentSection() {
-    const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-    let currentHeading = null;
-    
-    headings.forEach(heading => {
-      const rect = heading.getBoundingClientRect();
-      if (rect.top <= 100 && rect.bottom >= 0) {
-        currentHeading = heading;
-      }
-    });
-    
-    if (currentHeading && navPane) {
-      navPane.querySelectorAll('.nav-item').forEach(item => {
-        item.classList.remove('active');
-      });
-      
-      const activeItem = navPane.querySelector(`[data-target="${currentHeading.id}"]`);
-      if (activeItem) {
-        activeItem.classList.add('active');
-      }
-    }
-  }  // Handle search functionality
-  function handleSearch() {
-    const searchInput = navPane.querySelector('#nav-search-input');
-    const searchTerm = searchInput.value.trim().toLowerCase();
-    
-    if (!searchTerm) {
-      // Clear search - show all items
-      showAllNavItems();
-      return;
-    }
-    
-    const navItems = navPane.querySelectorAll('.nav-item');
-    let foundMatch = false;
-    
-    navItems.forEach(item => {
-      const text = item.textContent.toLowerCase();
-      if (text.includes(searchTerm)) {
-        item.style.display = 'block';
-        item.classList.add('search-match');
-        foundMatch = true;
-      } else {
-        item.style.display = 'none';
-        item.classList.remove('search-match');
-      }
-    });
-    
-    // Show message if no matches found
-    let noResultsMsg = navPane.querySelector('.no-search-results');
-    if (!foundMatch) {
-      if (!noResultsMsg) {
-        noResultsMsg = document.createElement('div');
-        noResultsMsg.className = 'no-search-results';
-        noResultsMsg.textContent = `No headings found for "${searchTerm}"`;
-        navPane.querySelector('.nav-pane-list').appendChild(noResultsMsg);
-      }
-    } else if (noResultsMsg) {
-      noResultsMsg.remove();
-    }
-    
-    console.log(`Search performed for: "${searchTerm}" - Found ${Array.from(navItems).filter(item => item.style.display !== 'none').length} matches`);
-  }
-  
-  // Handle real-time search input
-  function handleSearchInput() {
-    const searchInput = navPane.querySelector('#nav-search-input');
-    const searchTerm = searchInput.value.trim().toLowerCase();
-    
-    if (!searchTerm) {
-      showAllNavItems();
-      return;
-    }
-    
-    // Perform real-time filtering
-    const navItems = navPane.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-      const text = item.textContent.toLowerCase();
-      if (text.includes(searchTerm)) {
-        item.style.display = 'block';
-        item.classList.add('search-match');
-      } else {
-        item.style.display = 'none';
-        item.classList.remove('search-match');
-      }
-    });
-    
-    // Remove no results message during real-time search
-    const noResultsMsg = navPane.querySelector('.no-search-results');
-    if (noResultsMsg) {
-      noResultsMsg.remove();
-    }
-  }
-  
-  // Show all navigation items
-  function showAllNavItems() {
-    const navItems = navPane.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-      item.style.display = 'block';
-      item.classList.remove('search-match');
-    });
-    
-    const noResultsMsg = navPane.querySelector('.no-search-results');
-    if (noResultsMsg) {
-      noResultsMsg.remove();
-    }
-  }// Navigation Pane Content Script
 (function() {
   'use strict';
   
@@ -309,6 +202,114 @@
       }
     }
   }
+
+  // Highlight current section while scrolling
+   function highlightCurrentSection() {
+    const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    let currentHeading = null;
+    
+    headings.forEach(heading => {
+      const rect = heading.getBoundingClientRect();
+      if (rect.top <= 100 && rect.bottom >= 0) {
+        currentHeading = heading;
+      }
+    });
+    
+    if (currentHeading && navPane) {
+      navPane.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      const activeItem = navPane.querySelector(`[data-target="${currentHeading.id}"]`);
+      if (activeItem) {
+        activeItem.classList.add('active');
+      }
+    }
+  }  // Handle search functionality
+  function handleSearch() {
+    const searchInput = navPane.querySelector('#nav-search-input');
+    const searchTerm = searchInput.value.trim().toLowerCase();
+    
+    if (!searchTerm) {
+      // Clear search - show all items
+      showAllNavItems();
+      return;
+    }
+    
+    const navItems = navPane.querySelectorAll('.nav-item');
+    let foundMatch = false;
+    
+    navItems.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      if (text.includes(searchTerm)) {
+        item.style.display = 'block';
+        item.classList.add('search-match');
+        foundMatch = true;
+      } else {
+        item.style.display = 'none';
+        item.classList.remove('search-match');
+      }
+    });
+    
+    // Show message if no matches found
+    let noResultsMsg = navPane.querySelector('.no-search-results');
+    if (!foundMatch) {
+      if (!noResultsMsg) {
+        noResultsMsg = document.createElement('div');
+        noResultsMsg.className = 'no-search-results';
+        noResultsMsg.textContent = `No headings found for "${searchTerm}"`;
+        navPane.querySelector('.nav-pane-list').appendChild(noResultsMsg);
+      }
+    } else if (noResultsMsg) {
+      noResultsMsg.remove();
+    }
+    
+    console.log(`Search performed for: "${searchTerm}" - Found ${Array.from(navItems).filter(item => item.style.display !== 'none').length} matches`);
+  }
+  
+  // Handle real-time search input
+  function handleSearchInput() {
+    const searchInput = navPane.querySelector('#nav-search-input');
+    const searchTerm = searchInput.value.trim().toLowerCase();
+    
+    if (!searchTerm) {
+      showAllNavItems();
+      return;
+    }
+    
+    // Perform real-time filtering
+    const navItems = navPane.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      if (text.includes(searchTerm)) {
+        item.style.display = 'block';
+        item.classList.add('search-match');
+      } else {
+        item.style.display = 'none';
+        item.classList.remove('search-match');
+      }
+    });
+    
+    // Remove no results message during real-time search
+    const noResultsMsg = navPane.querySelector('.no-search-results');
+    if (noResultsMsg) {
+      noResultsMsg.remove();
+    }
+  }
+  
+  // Show all navigation items
+  function showAllNavItems() {
+    const navItems = navPane.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      item.style.display = 'block';
+      item.classList.remove('search-match');
+    });
+    
+    const noResultsMsg = navPane.querySelector('.no-search-results');
+    if (noResultsMsg) {
+      noResultsMsg.remove();
+    }
+  }// Navigation Pane Content Script
 
   // Listen for messages from popup
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
