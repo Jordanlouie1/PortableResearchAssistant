@@ -22,6 +22,58 @@
         </div>
       </div>
       <div class="nav-pane-content">
+         <h1>AI in Drug Discovery: Summary & Insights</h1>
+
+          <div class="section">
+            <h2>Quick Summary</h2>
+            <p>
+              This paper provides a comprehensive overview of AI and deep learning applications in drug discovery,
+              covering various stages from peptide synthesis to clinical development. While thorough, it lacks focus
+              on recent advancements like generative AI models and active learning.
+              <span class="highlight">Sources: pubmed.ncbi.nlm.nih.gov, unboundmedicine.com</span>
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Latest Developments</h2>
+            <p>
+              Recent advancements include deep generative models (DGMs) for <em>de novo</em> drug design, active learning
+              to improve data efficiency, and AI-driven optimization of drug discovery pipelines.
+              <span class="highlight">Source: pubmed.ncbi.nlm.nih.gov</span>
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Landscape Impact</h2>
+            <p>
+              <strong>Score:</strong> 6/10. The paper is published in a mid-tier journal (<em>Molecular Diversity</em>,
+              Impact Factor ~2.5) and authored by researchers from Delhi Technological University.
+              While informative, it lacks groundbreaking insights or extensive citations.
+              <span class="highlight">Sources: pubmed.ncbi.nlm.nih.gov</span>
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Top 5 Relevant Articles</h2>
+            <ul>
+              <li><strong>Unleashing the power of generative AI in drug discovery</strong> (2024) – Focuses on DGMs for de novo drug design.</li>
+              <li><strong>AI & ML Tech Driven Modern Drug Discovery and Development</strong> (2023) – Explores AI/ML applications in pharma R&D.</li>
+              <li><strong>Artificial Intelligence in Drug Design</strong> (2018) – Early review on AI use in design strategies.</li>
+              <li><strong>Machine Intelligence Approach for Drug Discovery</strong> (2021) – Deep learning-focused review.</li>
+              <li><strong>AI in Pharmaceutical Field – A Critical Review</strong> (2021) – Analytical perspective on practical challenges.</li>
+            </ul>
+            <p><span class="highlight">Sources: pubmed.ncbi.nlm.nih.gov, unboundmedicine.com</span></p>
+          </div>
+
+          <div class="section">
+            <h2>Top 3 Research Groups</h2>
+            <ul>
+              <li><strong>Gupta et al.</strong>, Delhi Technological University, India – AI and deep learning in drug discovery.</li>
+              <li><strong>Lin et al.</strong>, National Taiwan University, Taiwan – Generative AI for de novo drug design.</li>
+              <li><strong>Sarkar et al.</strong>, Indian Institute of Technology, India – AI and ML in drug discovery.</li>
+            </ul>
+          </div>
+
         <div class="nav-pane-list"></div>
       </div>
     `;
